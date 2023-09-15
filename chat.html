@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js
+"></script>
+
+</head>
+<style>
+    .page-border {
+  border: 1px solid #000;
+  padding: 20px;
+}
+.head{
+    height:20%;
+    margin-bottom:20%;
+  }
+</style>
+<body>
+    
+    <div class="container" id="pdf">
+    <div class="row page-border">
+        <div class="head">
+                <div style="position: absolute;"> 
+                <img src="img/logo.png" width="10%" height="50%" >
+              </div>
+                <div style="position: absolute; left:19%; ">
+                    <b>
+                       <font size="4"> <strong>PUDUCHERRY TECHNOLOGICAL UNIVERSITY</strong> <br></font>
+                        <font size="4"></font>Pillaichavady, Puducherry - 605
+                            014. <br>
+                         First Year B.Tech., / Lateral Entry/ PG <br> Admission form
+                            for the Academic Year 2023-2024
+                    </font>
+                    </b>
+                </div>
+                <div style="position: absolute; left:80%">
+                    <img id="profile" src="logopdf.jpg" width="60%" height="50%">
+                </div>
+              </div>
+            <div class="row mt-3">
+                <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td >CENTAC Number/JoSAA</td>
+                <td id="centac_josaa">JoSAA Number</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td id="sname"></td>
+            </tr>
+        <tr>
+          <td>Programme</td>
+          <td colspan="7" id="programme"></td>
+        </tr>
+        <tr>
+          <td>Department</td>
+          <td colspan="7" id="department"></td>
+        </tr>
+        <tr>
+          <td>Specialization (PG Course)</td>
+          <td colspan="7" id="specialization"></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td colspan="7" id="date"></td>
+        </tr>
+        <tr>
+          <td>Religion</td>
+          <td colspan="7" id="religion"></td>
+        </tr>
+        <tr>
+          <td>Nationality / Community</td>
+          <td colspan="7" id="nationality"></td>
+        </tr>
+        <tr>
+          <td>Mother Tongue</td>
+          <td colspan="7" id="mother_tongue"></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td colspan="7" id="gender"></td>
+        </tr>
+        <tr>
+          <td>Date of Admission</td>
+          <td colspan="7" id="date_of_admission"></td>
+        </tr>
+        <tr>
+          <td>Mobile Number</td>
+          <td colspan="7" id="mobile_number"></td>
+        </tr>
+        <tr>
+          <td>Aadhar Number</td>
+          <td colspan="7" id="aadhar_number"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td colspan="7" id="email"></td>
+        </tr>
+        <tr>
+          <td>JoinType</td>
+          <td colspan="7" id="join_type"></td>
+        </tr>
+        <tr>
+          <td>Father Name</td>
+          <td colspan="7" id="father_name"></td>
+        </tr>
+        <tr>
+          <td>Mother Name</td>
+          <td colspan="7" id="mother_name"></td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="row page-border">
+        <div class="container-fluid">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tbody>
+
+        
+        <tr>
+          <td>Father Occupation</td>
+          <td colspan="7" id="father_occupation"></td>
+        </tr>
+        <tr>
+          <td>Father's Mobile No.</td>
+          <td colspan="7" id="father_mobile_no"></td>
+        </tr>
+        <tr>
+          <td>Family Annual income</td>
+          <td colspan="7" id="income"></td>
+        </tr>
+        <tr>
+          <td>No. of Siblings</td>
+          <td colspan="7" id="sibling"></td>
+        </tr>
+        <tr>
+          <td>Special Category</td>
+          <td colspan="7" id="category"></td>
+        </tr>
+        <tr>
+          <td>Blood Group</td>
+          <td colspan="7" id="blood"></td>
+        </tr>
+        <tr>
+          <td>Other State / Union Territory of Puducherry</td>
+          <td colspan="7" id="states"></td>
+        </tr>
+        <tr>
+          <td>Assembly Constituency</td>
+          <td colspan="7" id="assembly"></td>
+        </tr>
+        <tr>
+          <td>Admitted Category</td>
+          <td colspan="7" id="admitted"></td>
+        </tr>
+        <tr>
+          <td>Original Category to which the Student belongs</td>
+          <td colspan="7" id="original_category"></td>
+        </tr>
+        <tr>
+          <th colspan="2">SSLC</th>
+        </tr>
+        <tr>
+          <td>Register No</td>
+          <td colspan="7" id="reg_num10"></td>
+        </tr>
+        <tr>
+          <td>School</td>
+          <td colspan="7" id="school_10"></td>
+        </tr>
+        <tr>
+          <td>Board</td>
+          <td colspan="7" id="board_10"></td>
+        </tr>
+        <tr>
+          <td>Percentage</td>
+          <td colspan="7" id="percentage_10"></td>
+        </tr>
+        <tr>
+            <td>Year of Passing</td>
+            <td colspan="7" id="yop_10"></td>
+          </tr><tr>
+            <th colspan="2">11 th</th>
+          </tr>
+          <tr>
+            <td>Register No</td>
+            <td colspan="7" id="reg_num_11"></td>
+          </tr>
+          <tr>
+            <td>School</td>
+            <td colspan="7" id="school_11"></td>
+          </tr>
+          <tr>
+            <td>Board</td>
+            <td colspan="7" id="board_11"></td>
+          </tr>
+          <tr>
+            <td>Percentage</td>
+            <td colspan="7" id="percentage_11"></td>
+          </tr>
+        
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="page-border">
+<div class="container-fluid">
+    <div class="row">
+        <table class="table table-bordered">
+            <tbody>
+          <tr>
+              <td>Year of Passing</td>
+              <td colspan="7" id="yop_11"></td>
+            </tr>
+        <tr>
+          <th colspan="2">HSC</th>
+        </tr>
+        <tr>
+          <td>Register No </td>
+          <td colspan="7" id="reg_num_12"></td>
+        </tr>
+        <tr>
+          <td>School</td>
+          <td colspan="7" id="school_12"></td>
+        </tr>
+        <tr>
+          <td>Board</td>
+          <td colspan="7" id="board_12"></td>
+        </tr>
+        <tr>
+          <td>Percentage</td>
+          <td colspan="7" id="percentage_12"></td>
+        </tr>
+        <tr>
+            <td>Year of Passing</td>
+            <td colspan="7" id="yop_12"></td>
+          </tr>
+        <tr>
+          <td>Permanent Address</td>
+          <td colspan="7" id="permanent_address"></td>
+        </tr>
+        <tr>
+          <td>Communication Address</td>
+          <td colspan="7" id="communication_address"></td>
+        </tr>
+        <tr>
+          <td>Transaction Number</td>
+          <td colspan="7" id="trans_action_num"></td>
+        </tr>
+        <tr>
+          <td>Amount Paid</td>
+          <td colspan="7" id="amount_paid"></td>
+        </tr>                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/Javascript" src="pdf.js"></script>
+</div>
+</body>
